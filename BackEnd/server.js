@@ -1,13 +1,9 @@
-var express = require("express");
+import express from "express";
 var app = express();
 
-app.get("/products", function (req, res) {
-  res.send("Hey, I am get response");
-});
+import productRouts from "./routes/product.js";
 
-app.post("/addProduct", function (req, res) {
-  res.send("Hey, I am post response");
-});
+app.use(productRouts);
 
 const server = app.listen(8081, function () {
   const host = server.address().address;
