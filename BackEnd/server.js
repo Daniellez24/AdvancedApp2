@@ -1,10 +1,12 @@
 import express from "express";
-var app = express();
+import cors from "cors";
+const app = express();
 
 import productRouts from "./routes/product.js";
 import { formDbConnection } from "./services/db.js";
 
 formDbConnection();
+app.use(cors("*"));
 app.use(express.json());
 app.use(productRouts);
 
