@@ -3,10 +3,10 @@ const router = Router();
 
 import {
   getAllProducts,
-  addProducts,
+  addNewCart,
 } from "../controllers/productController.js";
 
 router.get("/products/", getAllProducts);
-router.post("/addProduct", addProducts);
+router.post("/addNewCart", addNewCart);
 
 export default router;

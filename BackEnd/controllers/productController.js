@@ -12,6 +12,7 @@ export async function getAllProducts(req, res) {
   res.send({ allUsers });
 }
 
-export async function addProducts(req, res) {
+export async function addNewCart(req, res) {
+  
   res.send("send all products from here");
 }
