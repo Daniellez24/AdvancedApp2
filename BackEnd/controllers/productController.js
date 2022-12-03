@@ -1,9 +1,15 @@
 import { ProductModel } from "../schemas/product.js";
 
 export async function getAllProducts(req, res) {
-  //TODO check why this is an error when returning allUsers
-  let allUsers = ProductModel.find({}, function (err, file) {});
-  res.send("Getting all the users");
+  let allUsers = await ProductModel.find({}, function (err, file) {})
+    //DONT CHANGE THIS - it is handling the  Query was already executed: products.find({}) error
+    .clone()
+    .catch(function (err) {
+      console.log(err);
+    });
+
+  console.log(allUsers);
+  res.send({ allUsers });
 }
 
 export async function addProducts(req, res) {
