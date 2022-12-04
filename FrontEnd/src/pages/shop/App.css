@@ -7,3 +7,15 @@ h1 {
 body {
     background: rgb(63, 191, 230);
 }
+
+.goToCart {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    margin-left: 50px;
+
+}
