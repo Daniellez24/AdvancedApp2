@@ -6,7 +6,11 @@ export const useProducts = () => {
 
   const getProducts = async () => {
     let res = await Api.get("products");
-    setProducts(res.data.allProducts);
+    res = res.data.allProducts.map((item) => {
+      return { amount: 0, ...item };
+    });
+    localStorage.setItem("products", JSON.stringify(res));
+    setProducts(res);
   };
 
   useEffect(() => {
