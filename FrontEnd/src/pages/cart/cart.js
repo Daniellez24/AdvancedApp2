@@ -1,4 +1,5 @@
 import React from "react";
+import { Api } from "../../services/api";
 
 import "./cart.css";
 
@@ -10,6 +11,18 @@ export const Cart = () => {
   let totalPrice = 0;
 
   console.log(cartItems);
+
+  let name;
+
+  async function submitForm(e){
+    e.preventDefault();
+    let res = await Api.post("addNewCart",{
+      cartOwner: name, 
+      items: cartItems
+    })
+    console.log(res.data);
+  }
+
 
   return (
     <div className="cart__container">
@@ -31,6 +44,13 @@ export const Cart = () => {
       </div>
 
       <p>Total Cart Price is {totalPrice}$</p>
+      <form onSubmit={submitForm}>
+        <label>
+          Full Name:
+          <input type="text" name="name" onChange={ (event) => name = event.target.value}/>
+        </label> <br />
+        <button className="submitBtn" type="submit" value="Submit" />
+      </form>
     </div>
   );
 };
