@@ -6,10 +6,18 @@ export const useProducts = () => {
 
   const getProducts = async () => {
     let res = await Api.get("products");
+
     res = res.data.allProducts.map((item) => {
       return { amount: 0, ...item };
     });
-    localStorage.setItem("products", JSON.stringify(res));
+    if (
+      !localStorage.getItem("cureentlyShopping") ||
+      !localStorage.getItem("products")
+    ) {
+      localStorage.setItem("products", JSON.stringify(res));
+    } else {
+    }
+
     setProducts(res);
   };
 

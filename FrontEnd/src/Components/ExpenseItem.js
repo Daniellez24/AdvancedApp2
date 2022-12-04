@@ -4,6 +4,8 @@ import { useRef, useEffect } from "react";
 export function ExpenseItem({ name, price, img, index }) {
   function increaseAmount() {
     let list = JSON.parse(localStorage.getItem("products"));
+    if(list == null)
+        return;
     list[index].amount += 1;
     localStorage.setItem("products", JSON.stringify(list));
     console.log(JSON.parse(localStorage.getItem("products")));

@@ -9,6 +9,8 @@ function App() {
   const products = useProducts();
   const navigate = useNavigate();
 
+  localStorage.setItem("cureentlyShopping", true);
+
   return (
     <>
       <h1>Our shop</h1>
